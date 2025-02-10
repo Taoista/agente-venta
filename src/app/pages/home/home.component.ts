@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { ProductoService } from '@shared/services/producto.service';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChatGetComponent } from './components/chat-get/chat-get.component';
 import { ChatSendComponent } from './components/chat-send/chat-send.component';
+import { SendChatService } from '@shared/services/send-chat.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +13,8 @@ import { ChatSendComponent } from './components/chat-send/chat-send.component';
 })
 export class HomeComponent {
 
-  private serviceProductos = inject(ProductoService);
-  // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODQ0MTEyOS1mNWJkLTQ5MzAtOTUyNC1mMDE3NGM5YWFhYTQiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzM5MTM0NTU3fQ.Vx-uaJqRpfnALAGsK6LmWl18SnEJWIMgmt9oqQVf30A
+  private serviceSendChat = inject(SendChatService);
+  
   productos = [];
 
   list_chats:any[] = [];
@@ -38,17 +38,23 @@ export class HomeComponent {
       tipe:'send',
       text:text,
     });
-    this.serviceProductos.getData().then((response) => {
+    this.serviceSendChat.getData(text).then((response) => {
       this.list_chats.push({
         tipe:'get',
-        text:response,
+        text:response.output,
       });
+      console.log(response.output);
     }).catch((error) => {
       console.log(error)
     }).finally(() => {
 
     })
   }
+
+
+//   Laura
+// 11:46
+// Aquí tienes algunos precios de neumáticos tamaño R22: 1. **11 R22.5 146/143 M GRT901** - Precio: **$155,033** - ![Imagen](https://i.ibb.co/MpgThP3/112787.jpg) 2. **11 R22.5 16 PR HF638** - Precio: **$151,883** - ![Imagen](https://i.ibb.co/PW6Rwv1/image.webp) 3. **NEUM. 11 R22.5 16PR 146/143M 366** - Precio: **$145,635** - ![Imagen](https://i.ibb.co/LzLg4s5/image.webp) 4. **11 R22.5 16PR W1060** - Precio: **$191,126** - ![Imagen](https://i.ibb.co/Xx5Bdd3/image.webp) 5. **NEUM.12 R22.5 16PR MD-738 W CHAOYANG** - Precio: **$241,160** - ![Imagen](https://i.ibb.co/tbdKkms/image.webp) Estos son solo algunos ejemplos y los precios pueden variar dependiendo del proveedor. Si necesitas más información o precios adicionales, no dudes en preguntar.
 
 
 }
