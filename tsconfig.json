@@ -28,7 +28,8 @@
       "@pages/*": ["./src/app/pages/*"],
       "@service/*": ["./src/app/services/*"],
       "@model/*": ["./src/app/models/*"],
-      "@pipe/*": ["./src/app/pipes/*"]
+      "@pipe/*": ["./src/app/pipes/*"],
+      "@env/*": ["./src/environments/*"]
     },
   },
   "angularCompilerOptions": {
