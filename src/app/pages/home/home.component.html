@@ -1,3 +1,4 @@
+
 <div class="flex h-screen">
 
   <!-- Tabla de productos (lado derecho) -->
@@ -27,6 +28,7 @@
         </tbody>
       </table>
     </div>
+
   </div>
 
   <!-- Chatbot (lado izquierdo) -->
@@ -39,11 +41,11 @@
 
       <div class="flex-1 overflow-y-auto p-4 space-y-4">
         @for (item of list_chats; track $index) {
-          @if( list_chats[$index]['tipe'] == "send" ){
-            <app-chat-send [text_msg]="list_chats[$index]['text']" />
-          }@else{
-            <app-chat-get [text_response]="list_chats[$index]['text']" />
-          }
+        @if( list_chats[$index]['tipe'] == "send" ){
+        <app-chat-send [text_msg]="list_chats[$index]['text']" />
+        }@else{
+        <app-chat-get [text_response]="list_chats[$index]['text']" />
+        }
         }
       </div>
       <!-- Campo de entrada y botón de enviar -->
