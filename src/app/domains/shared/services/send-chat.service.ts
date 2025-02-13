@@ -11,7 +11,8 @@ export class SendChatService {
     private http = inject(HttpClient);
   
     // private url = 'http://backend-agente-venta.test/api/neumaticos';
-    private url = `${environment.API_URL}/ddf2f7c0-ba5d-469b-9137-af1d6bb6df01`;
+    // private url = `${environment.API_URL}/ddf2f7c0-ba5d-469b-9137-af1d6bb6df01`;
+    private url = "https://taoistadev.app.n8n.cloud/webhook/ddf2f7c0-ba5d-469b-9137-af1d6bb6df01";
    
     constructor() { }
   
