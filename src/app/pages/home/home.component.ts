@@ -33,6 +33,8 @@ export class HomeComponent {
   send_chat(){
   
     const text = this.input_chat.value;
+    
+    this.input_chat.setValue('');
 
     this.list_chats.push({
       tipe:'send',
